@@ -529,14 +529,17 @@
     </nav>
 
     <!-- Background video -->
-    <div class="video-container">
-        <video autoplay muted loop>
-            <source src="img/background-video.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <a href="#about" class="scroll-down-btn" aria-label="Read more about Mingway">
-            <div class="arrow"></div>
-        </a>
+    <div class="video-container" itemscope itemtype="http://schema.org/VideoObject">
+    <meta itemprop="name" content="Background Video">
+    <meta itemprop="description" content="This is a background video for the homepage">
+    <meta itemprop="uploadDate" content="2024-05-18">
+    <video autoplay muted loop itemprop="contentUrl" title="Congratulations on finding an electrical expert!" alt="A brief description of MINGWAY ELECTRIC">
+        <source src="img/background-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <a href="#about" class="scroll-down-btn" aria-label="Read more about Mingway">
+        <div class="arrow"></div>
+    </a>
     </div>
 
     <!-- About us -->
