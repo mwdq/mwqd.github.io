@@ -198,7 +198,22 @@
                 display: inline-block;
                 float: none;
             }
-       }    
+       }
+
+       @media (max-width: 767px) {
+           .navbar-nav .nav-link {
+               margin: 0;
+           }
+           .header-title {
+               font-size: 36px;
+           }
+       }
+
+       @media (max-width: 575.98px) {
+           .navbar-brand img {
+               max-height: 30px;
+           }
+       }
     </style>
   </head>
   <body>
@@ -402,7 +417,7 @@
             Address: Units 2-78, building 007, 7 Hung Hing Road, Jiangbei
             District, Ningbo, Zhejiang, PR China 315000
           </p>
-          <p>
+          <p style="margin-bottom: 40px;">
             Email:
             <a style="text-decoration-line: none" href="mailto:info@nbmwele.com"
               >info@nbmwele.com</a
