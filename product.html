@@ -678,10 +678,12 @@
                             <li><a href="#gallery" onclick="filterProducts('all')">All Products</a></li>
                             <li><a href="#gallery" onclick="filterProducts('Automatic Transfer Switch')">Automatic Transfer Switch</a></li>
                             <li><a href="#gallery" onclick="filterProducts('Circuit Breaker')">Circuit Breaker</a></li>
-                            <li><a href="#gallery" onclick="filterProducts('Magnetic Contactor')">Magnetic Contactor</a></li>
-                            <li><a href="#gallery" onclick="filterProducts('Magnetic Starter')">Magnetic Starter</a></li>
+                            <li><a href="#gallery" onclick="filterProducts('Surge Protector')">Surge Protector</a></li>
+                            <li><a href="#gallery" onclick="filterProducts('Voltage Protector')">Voltage Protector</a></li>
+                            <li><a href="#gallery" onclick="filterProducts('Contactor')">Contactor</a></li>
+                            <li><a href="#gallery" onclick="filterProducts('Motor Starter')">Motor Starter</a></li>
                             <li><a href="#gallery" onclick="filterProducts('Variable Frequency Drive')">Variable Frequency Drive</a></li>
-                            <li><a href="#gallery" onclick="filterProducts('Soft Starter')">Soft Starter</a></li>
+                            <li><a href="#gallery" onclick="filterProducts('Distribution Box')">Distribution Box</a></li>
                         </ul>
                     </div>
                     <div class="col-md-9 flex-grow-1">
@@ -1035,20 +1037,30 @@
         var products = [
             { name: 'Automatic Transfer Switch', image: 'ATS/XCS1/1.jpg', link: 'XCS1.html', category: 'Automatic Transfer Switch' },
             { name: 'Mini Auto-Transfer Switch', image: 'ATS/XCQ2/1.jpg', link: 'XCQ2.html', category: 'Automatic Transfer Switch' },
-            { name: 'Air Circuit Breaker', image: 'ACB/1.jpg', link: 'XCW1.html', category: 'Circuit Breaker' },
-            { name: 'Molded Case Circuit Breaker', image: 'MCCB/1.jpg', link: 'XCM1.html', category: 'Circuit Breaker' },
-            { name: 'Motor Protect Circuit Breaker', image: 'MPCB/1.jpg', link: 'XCP5.html', category: 'Circuit Breaker' },
-            { name: 'Miniature Circuit Breaker', image: 'MCB/1.jpg', link: 'MCB1.html', category: 'Circuit Breaker' },
-            { name: 'Residual Current Circuit Breaker', image: 'RCCB/1.jpg', link: 'RCB1.html', category: 'Circuit Breaker' },
-            { name: 'RCCB with Over-current Protection', image: 'RCBO/1.jpg', link: 'RCL1.html', category: 'Circuit Breaker' },
-            { name: 'Arc-Fault Detection Device', image: 'AFDD/1.jpg', link: 'AFD6.html', category: 'Circuit Breaker' },
-            { name: 'Changeover Switch', image: 'CHANGEOVER/1.jpg', link: 'MCZ6.html', category: 'Circuit Breaker' },
-            { name: 'Surge Protection Device', image: 'SPD/1.jpg', link: 'MCS6.html', category: 'Circuit Breaker' },
-            { name: 'AC Contactor', image: 'CONTACTOR/1.jpg', link: 'CJX2.html', category: 'Magnetic Contactor' },
-            { name: 'Magnetic Starter', image: 'STARTER/1.jpg', link: 'XCQ7.html', category: 'Magnetic Starter' },
+
+            { name: 'Air Circuit Breaker', image: 'Circuit Breaker/ACB/1.jpg', link: 'XCW1.html', category: 'Circuit Breaker' },
+            { name: 'Molded Case Circuit Breaker', image: 'Circuit Breaker/MCCB/1.jpg', link: 'XCM1.html', category: 'Circuit Breaker' },
+            { name: 'Motor Protect Circuit Breaker', image: 'Circuit Breaker/MPCB/1.jpg', link: 'XCP5.html', category: 'Circuit Breaker' },
+            { name: 'Miniature Circuit Breaker', image: 'Circuit Breaker/MCB/1.jpg', link: 'MCB1.html', category: 'Circuit Breaker' },
+            { name: 'RCCB', image: 'Circuit Breaker/RCCB/1.jpg', link: 'RCB1.html', category: 'Circuit Breaker' },
+            { name: 'RCBO', image: 'Circuit Breaker/RCBO/1.jpg', link: 'RCL1.html', category: 'Circuit Breaker' },
+            { name: 'Arc-Fault Detection Device', image: 'Circuit Breaker/AFDD/1.jpg', link: 'AFD6.html', category: 'Circuit Breaker' },
+            { name: 'Changeover Switch', image: 'Circuit Breaker/CHANGEOVER/1.jpg', link: 'MCZ6.html', category: 'Circuit Breaker' },
+            { name: 'Vacuum Circuit Breaker', image: 'Circuit Breaker/VCB/1.jpg', link: 'VS1.html', category: 'Circuit Breaker' },
+
+            { name: 'Surge Protection Device', image: 'SPD/1.jpg', link: 'MCS6.html', category: 'Surge Protector' },
+
+            { name: 'Voltage and Current Monitor', image: 'Voltage Protector/MC6V/1.jpg', link: 'MC6V.html', category: 'Voltage Protector' },
+
+            { name: 'Magnetic Contactor', image: 'Contactor/Magnetic Contactor/1.jpg', link: 'CJX2.html', category: 'Contactor' },
+            { name: 'Modular Contactor', image: 'Contactor/Modular Contactor/1.jpg', link: 'MCH6.html', category: 'Contactor' },
+
+            { name: 'Magnetic Starter', image: 'Starter/XCQ7/1.jpg', link: 'XCQ7.html', category: 'Motor Starter' },
+            { name: 'Soft Starter', image: 'Starter/XCQR2/1.jpg', link: 'XCQR2.html', category: 'Motor Starter' },
+
             { name: 'Variable Frequency Drive', image: 'VFD/1.jpg', link: 'XCB1000.html', category: 'Variable Frequency Drive' },
-            { name: 'Soft Starter', image: 'SOFT ST/1.jpg', link: 'XCQR2.html', category: 'Soft Starter' },
-            { name: 'Modular Contactor', image: 'MODULAR CONTACTOR/1.jpg', link: 'MCH6.html', category: 'Magnetic Contactor' },
+
+            { name: 'Distribution Box', image: 'Distribution Box/1.jpg', link: 'CS1.html', category: 'Distribution Box' },
         ];
         var productsPerPage = 6;
         function displayProducts(productsArray, page) {
