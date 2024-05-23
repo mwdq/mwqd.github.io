@@ -1000,23 +1000,6 @@
             });
         });
 
-        // Smooth scrolling for internal links in the navigation menu
-        document.querySelectorAll('.nav-link').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-        // Check if the target is an internal link
-        if (this.getAttribute('href').startsWith('#')) {
-            e.preventDefault();
-        
-            const target = document.querySelector(this.getAttribute('href'));
-            const navbarHeight = document.querySelector('.navbar').offsetHeight;
-            window.scrollTo({
-                top: target.offsetTop - navbarHeight,
-                behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
         // Owl Carousel
         $(".owl-carousel").owlCarousel({
           loop: true,
