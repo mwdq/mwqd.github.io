@@ -198,10 +198,42 @@
         }
 
         .sidebar {
-            background-color: transparent;
+            background-color: #fff;
             padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 18px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar:hover {
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.2);
+        }
+
+        .sidebar .search-container {
+            position: relative;
+            width: 100%;
             margin-bottom: 20px;
+        }
+
+        .sidebar .search-container .toggle-button {
+            display: none;
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            color: #999;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .sidebar .search-container .search-icon {
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%);
+            color: #999;
+            transition: color 0.3s ease;
         }
 
         .sidebar h3 {
@@ -209,59 +241,54 @@
             color: #333;
             font-size: 20px;
             margin-bottom: 15px;
-        }
-
-        .sidebar .search-container {
-            position: relative;
-            width: 100%;
-        }
-
-        .sidebar .search-container .search-icon {
-            position: absolute;
-            top: 35%;
-            left: 10px;
-            transform: translateY(-50%);
-            color: #999;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 10px;
         }
 
         .sidebar input[type="text"] {
-            background-color: transparent;
+            background-color: #f2f2f2;
             width: 100%;
-            padding: 10px 10px 10px 30px;
-            margin-bottom: 20px;
+            padding: 10px 10px 10px 40px;
             border: 1px solid #ddd;
-            border-radius: 50px;
+            border-radius: 30px;
             transition: border-color 0.3s ease;
         }
 
         .sidebar input[type="text"]:focus {
-            border-color: #ff0000;
+            border-color: #007bff;
             outline: none;
         }
 
         .sidebar ul {
-            list-style: none;
+            list-style-type: none;
             padding: 0;
             margin: 0;
         }
 
         .sidebar ul li {
             margin-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            transition: all 0.3s ease;
         }
 
         .sidebar ul li a {
             color: #333;
             text-decoration: none;
-            transition: color 0.3s ease;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
         }
 
         .sidebar ul li a:hover {
-            color: #007bff;
-            text-decoration: underline;
+            color: #fff;
+            background-color: #007bff;
         }
 
-        .product-gallery {
-            padding: 50px 0;
+        .sidebar ul li.active a {
+            background-color: #007bff;
+            color: #fff;
         }
 
         .product-item {
@@ -328,6 +355,7 @@
             text-align: center;
             font-weight: bold;
             font-size: 18px;
+            padding: 5px 0;
             color: #333;
             transition: color 0.3s ease;
         }
@@ -568,12 +596,25 @@
         }
 
        @media (max-width: 767px) {
-           .navbar-nav .nav-link {
-               margin: 0;
-           }
+            .navbar-nav .nav-link {
+                margin: 0;
+            }
+            
             .sidebar {
-                padding: 15px;
                 text-align: center;
+                padding-bottom: 2px;
+            }
+
+            .sidebar .search-container .toggle-button {
+                display:block
+            }
+
+            .sidebar ul, .sidebar h3 {
+                display: none;
+            }
+
+            .sidebar.show-links ul, .sidebar.show-links h3 {
+                display: block;
             }
 
             .product-item {
@@ -669,9 +710,9 @@
                     <div class="col-md-3 sidebar">
                         <div class="search-container">
                             <i class="fas fa-search search-icon"></i>
+                            <i class="fas fa-bars toggle-button"></i>
                             <input type="text" id="search-box" placeholder="Search Product...">
                         </div>
-                        <h3>Product Category</h3>
                         <ul>
                             <li><a href="#gallery" onclick="filterProducts('all')">All Products</a></li>
                             <li><a href="#gallery" onclick="filterProducts('Automatic Transfer Switch')">Automatic Transfer Switch</a></li>
@@ -1033,142 +1074,159 @@
     </script>
 
     <script>
+        const toggleButton = document.querySelector('.toggle-button');
+        const sidebar = document.querySelector('.sidebar');
+
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('show-links');
+        });
+
+        document.querySelectorAll('.sidebar ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (sidebar.classList.contains('show-links')) {
+                    sidebar.classList.remove('show-links');
+                }
+            });
+        });
         var products = [
-            { name: 'Automatic Transfer Switch', image: 'ATS/XCS1/1.jpg', link: 'XCS1.html', category: 'Automatic Transfer Switch' },
-            { name: 'Mini Auto-Transfer Switch', image: 'ATS/XCQ2/1.jpg', link: 'XCQ2.html', category: 'Automatic Transfer Switch' },
+    { name: 'Automatic Transfer Switch', image: 'ATS/XCS1/1.jpg', link: 'XCS1.html', category: 'Automatic Transfer Switch' },
+    { name: 'Mini Auto-Transfer Switch', image: 'ATS/XCQ2/1.jpg', link: 'XCQ2.html', category: 'Automatic Transfer Switch' },
+    { name: 'Air Circuit Breaker', image: 'Circuit Breaker/ACB/1.jpg', link: 'XCW1.html', category: 'Circuit Breaker' },
+    { name: 'Molded Case Circuit Breaker', image: 'Circuit Breaker/MCCB/1.jpg', link: 'XCM1.html', category: 'Circuit Breaker' },
+    { name: 'Motor Protect Circuit Breaker', image: 'Circuit Breaker/MPCB/1.jpg', link: 'XCP5.html', category: 'Circuit Breaker' },
+    { name: 'Miniature Circuit Breaker', image: 'Circuit Breaker/MCB/1.jpg', link: 'MCB1.html', category: 'Circuit Breaker' },
+    { name: 'RCCB', image: 'Circuit Breaker/RCCB/1.jpg', link: 'RCB1.html', category: 'Circuit Breaker' },
+    { name: 'RCBO', image: 'Circuit Breaker/RCBO/1.jpg', link: 'RCL1.html', category: 'Circuit Breaker' },
+    { name: 'Arc-Fault Detection Device', image: 'Circuit Breaker/AFDD/1.jpg', link: 'AFD6.html', category: 'Circuit Breaker' },
+    { name: 'Changeover Switch', image: 'Circuit Breaker/CHANGEOVER/1.jpg', link: 'MCZ6.html', category: 'Circuit Breaker' },
+    { name: 'Vacuum Circuit Breaker', image: 'Circuit Breaker/VCB/1.jpg', link: 'VS1.html', category: 'Circuit Breaker' },
+    { name: 'Surge Protection Device', image: 'SPD/1.jpg', link: 'MCS6.html', category: 'Surge Protector' },
+    { name: 'Voltage and Current Monitor', image: 'Voltage Monitor/MC6V/1.jpg', link: 'MC6V.html', category: 'Voltage Monitor' },
+    { name: 'Magnetic Contactor', image: 'Contactor/Magnetic Contactor/1.jpg', link: 'CJX2.html', category: 'Contactor' },
+    { name: 'Modular Contactor', image: 'Contactor/Modular Contactor/1.jpg', link: 'MCH6.html', category: 'Contactor' },
+    { name: 'Magnetic Starter', image: 'Starter/XCQ7/1.jpg', link: 'XCQ7.html', category: 'Motor Starter' },
+    { name: 'Soft Starter', image: 'Starter/XCQR2/1.jpg', link: 'XCQR2.html', category: 'Motor Starter' },
+    { name: 'Variable Frequency Drive', image: 'VFD/1.jpg', link: 'XCB1000.html', category: 'Variable Frequency Drive' },
+    { name: 'Distribution Box', image: 'Distribution Box/1.jpg', link: 'CS1.html', category: 'Distribution Box' },
+];
+var productsPerPage = 6;
 
-            { name: 'Air Circuit Breaker', image: 'Circuit Breaker/ACB/1.jpg', link: 'XCW1.html', category: 'Circuit Breaker' },
-            { name: 'Molded Case Circuit Breaker', image: 'Circuit Breaker/MCCB/1.jpg', link: 'XCM1.html', category: 'Circuit Breaker' },
-            { name: 'Motor Protect Circuit Breaker', image: 'Circuit Breaker/MPCB/1.jpg', link: 'XCP5.html', category: 'Circuit Breaker' },
-            { name: 'Miniature Circuit Breaker', image: 'Circuit Breaker/MCB/1.jpg', link: 'MCB1.html', category: 'Circuit Breaker' },
-            { name: 'RCCB', image: 'Circuit Breaker/RCCB/1.jpg', link: 'RCB1.html', category: 'Circuit Breaker' },
-            { name: 'RCBO', image: 'Circuit Breaker/RCBO/1.jpg', link: 'RCL1.html', category: 'Circuit Breaker' },
-            { name: 'Arc-Fault Detection Device', image: 'Circuit Breaker/AFDD/1.jpg', link: 'AFD6.html', category: 'Circuit Breaker' },
-            { name: 'Changeover Switch', image: 'Circuit Breaker/CHANGEOVER/1.jpg', link: 'MCZ6.html', category: 'Circuit Breaker' },
-            { name: 'Vacuum Circuit Breaker', image: 'Circuit Breaker/VCB/1.jpg', link: 'VS1.html', category: 'Circuit Breaker' },
-
-            { name: 'Surge Protection Device', image: 'SPD/1.jpg', link: 'MCS6.html', category: 'Surge Protector' },
-
-            { name: 'Voltage and Current Monitor', image: 'Voltage Protector/MC6V/1.jpg', link: 'MC6V.html', category: 'Voltage Protector' },
-
-            { name: 'Magnetic Contactor', image: 'Contactor/Magnetic Contactor/1.jpg', link: 'CJX2.html', category: 'Contactor' },
-            { name: 'Modular Contactor', image: 'Contactor/Modular Contactor/1.jpg', link: 'MCH6.html', category: 'Contactor' },
-
-            { name: 'Magnetic Starter', image: 'Starter/XCQ7/1.jpg', link: 'XCQ7.html', category: 'Motor Starter' },
-            { name: 'Soft Starter', image: 'Starter/XCQR2/1.jpg', link: 'XCQR2.html', category: 'Motor Starter' },
-
-            { name: 'Variable Frequency Drive', image: 'VFD/1.jpg', link: 'XCB1000.html', category: 'Variable Frequency Drive' },
-
-            { name: 'Distribution Box', image: 'Distribution Box/1.jpg', link: 'CS1.html', category: 'Distribution Box' },
-        ];
-        var productsPerPage = 6;
-        function displayProducts(productsArray, page) {
-            var startIndex = (page - 1) * productsPerPage;
-            var endIndex = startIndex + productsPerPage;
-            var productRow = document.getElementById('product-row');
-            var pagination = document.getElementById('pagination');
-            productRow.innerHTML = '';
-            for (var i = startIndex; i < Math.min(endIndex, productsArray.length); i++) {
-                var product = productsArray[i];
-                var productHTML = `
-                    <div class="col-md-4 mb-4">
-                        <div class="product-item" onmouseover="changeTextColor(this, 'red')" onmouseout="resetTextColor(this)">
-                            <div class="product-img">
-                                <img src="${product.image}" class="img-fluid" alt="${product.name}">
-                                <div class="overlay">
-                                    <a href="${product.link}"><i class="fas fa-eye"></i></a>
-                                </div>
-                            </div>
-                            <div class="product-name">
-                                ${product.name}
-                            </div>
+function displayProducts(productsArray, page) {
+    var startIndex = (page - 1) * productsPerPage;
+    var endIndex = startIndex + productsPerPage;
+    var productRow = document.getElementById('product-row');
+    productRow.innerHTML = '';
+    for (var i = startIndex; i < Math.min(endIndex, productsArray.length); i++) {
+        var product = productsArray[i];
+        var productHTML = `
+            <div class="col-md-4 mb-4">
+                <div class="product-item" onmouseover="changeTextColor(this, 'red')" onmouseout="resetTextColor(this)">
+                    <div class="product-img">
+                        <img src="${product.image}" class="img-fluid" alt="${product.name}">
+                        <div class="overlay">
+                            <a href="${product.link}"><i class="fas fa-eye"></i></a>
                         </div>
                     </div>
-                `;
-                productRow.insertAdjacentHTML('beforeend', productHTML);
-            }
-            displayPagination(productsArray, page);
-        }
-        function displayPagination(productsArray, currentPage) {
-            var numPages = Math.ceil(productsArray.length / productsPerPage);
-            var pagination = document.getElementById('pagination');
-            pagination.innerHTML = '';
-            var prevPage = document.createElement('li');
-            prevPage.classList.add('page-item');
-            var prevLink = document.createElement('a');
-            prevLink.classList.add('page-link', 'pagination-link');
-            prevLink.href = '#';
-            prevLink.innerHTML = '&laquo; Prev';
-            prevPage.appendChild(prevLink);
-            prevPage.addEventListener('click', function(e) {
-                e.preventDefault();
-                if (currentPage > 1) {
-                    displayProducts(productsArray, currentPage - 1);
+                    <div class="product-name">
+                        ${product.name}
+                    </div>
+                </div>
+            </div>
+        `;
+        productRow.insertAdjacentHTML('beforeend', productHTML);
+    }
+    displayPagination(productsArray, page);
+}
+
+function displayPagination(productsArray, currentPage) {
+    var numPages = Math.ceil(productsArray.length / productsPerPage);
+    var pagination = document.getElementById('pagination');
+    pagination.innerHTML = '';
+
+    if (currentPage > 1) {
+        var prevPage = document.createElement('li');
+        prevPage.classList.add('page-item');
+        var prevLink = document.createElement('a');
+        prevLink.classList.add('page-link', 'pagination-link');
+        prevLink.href = '#';
+        prevLink.innerHTML = '&laquo; Prev';
+        prevPage.appendChild(prevLink);
+        prevPage.addEventListener('click', function(e) {
+            e.preventDefault();
+            displayProducts(productsArray, currentPage - 1);
                     document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-            pagination.appendChild(prevPage);
-            for (var i = 1; i <= numPages; i++) {
-                var li = document.createElement('li');
-                li.classList.add('page-item', 'pagination-item');
-                var link = document.createElement('a');
-                link.classList.add('page-link', 'pagination-link');
-                link.href = '#';
-                link.textContent = i;
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    displayProducts(productsArray, parseInt(this.textContent));
+        });
+        pagination.appendChild(prevPage);
+    }
+
+    for (var i = 1; i <= numPages; i++) {
+        var li = document.createElement('li');
+        li.classList.add('page-item', 'pagination-item');
+        if (i === currentPage) {
+            li.classList.add('active');
+        }
+        var link = document.createElement('a');
+        link.classList.add('page-link', 'pagination-link');
+        link.href = '#';
+        link.textContent = i;
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            displayProducts(productsArray, parseInt(this.textContent));
                     document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
-                });
-                if (i === currentPage) {
-                    li.classList.add('active');
-                }
-                li.appendChild(link);
-                pagination.appendChild(li);
-            }
-            var nextPage = document.createElement('li');
-            nextPage.classList.add('page-item');
-            var nextLink = document.createElement('a');
-            nextLink.classList.add('page-link', 'pagination-link');
-            nextLink.href = '#';
-            nextLink.innerHTML = 'Next &raquo;';
-            nextPage.appendChild(nextLink);
-            nextPage.addEventListener('click', function(e) {
-                e.preventDefault();
-                if (currentPage < numPages) {
-                    displayProducts(productsArray, currentPage + 1);
+        });
+        li.appendChild(link);
+        pagination.appendChild(li);
+    }
+
+    if (currentPage < numPages) {
+        var nextPage = document.createElement('li');
+        nextPage.classList.add('page-item');
+        var nextLink = document.createElement('a');
+        nextLink.classList.add('page-link', 'pagination-link');
+        nextLink.href = '#';
+        nextLink.innerHTML = 'Next &raquo;';
+        nextPage.appendChild(nextLink);
+        nextPage.addEventListener('click', function(e) {
+            e.preventDefault();
+            displayProducts(productsArray, currentPage + 1);
                     document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-            pagination.appendChild(nextPage);
-        }
-        function changeTextColor(element, color) {
-            element.querySelector('.product-name').style.color = color;
-        }
-        function resetTextColor(element) {
-            element.querySelector('.product-name').style.color = '';
-        }
-        function filterProducts(category) {
-            var filteredProducts = products.filter(function(product) {
-                return category === 'all' || product.category === category;
-            });
-            displayProducts(filteredProducts, 1);
-        }
-        
-        document.getElementById('search-box').addEventListener('focus', function() {
-        document.querySelector('.search-icon').style.color = 'red';
         });
-        document.getElementById('search-box').addEventListener('blur', function() {
-        document.querySelector('.search-icon').style.color = '';
-        });
-        document.getElementById('search-box').addEventListener('input', function() {
-            var searchTerm = this.value.toLowerCase();
-            var filteredProducts = products.filter(function(product) {
-                return product.name.toLowerCase().includes(searchTerm);
-            });
-            displayProducts(filteredProducts, 1);
-        });
-        displayProducts(products, 1);
+        pagination.appendChild(nextPage);
+    }
+}
+
+function changeTextColor(element, color) {
+    element.querySelector('.product-name').style.color = color;
+}
+
+function resetTextColor(element) {
+    element.querySelector('.product-name').style.color = '';
+}
+
+function filterProducts(category) {
+    var filteredProducts = products.filter(function(product) {
+        return category === 'all' || product.category === category;
+    });
+    displayProducts(filteredProducts, 1);
+}
+
+document.getElementById('search-box').addEventListener('focus', function() {
+    document.querySelector('.search-icon').style.color = 'red';
+});
+
+document.getElementById('search-box').addEventListener('blur', function() {
+    document.querySelector('.search-icon').style.color = '';
+});
+
+document.getElementById('search-box').addEventListener('input', function() {
+    var searchTerm = this.value.toLowerCase();
+    var filteredProducts = products.filter(function(product) {
+        return product.name.toLowerCase().includes(searchTerm);
+    });
+    displayProducts(filteredProducts, 1);
+});
+
+displayProducts(products, 1);
     </script>
 
 </body>
