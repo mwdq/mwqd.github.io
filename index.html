@@ -54,6 +54,10 @@
         .navbar.hide {
             transform: translateY(-100%);
         }
+
+        .navbar.scrolled {
+            background-color: #fff;
+        }
         .navbar:hover {
             background-color: #fff;
         }
@@ -561,15 +565,16 @@
     <div class="video-container" itemscope itemtype="http://schema.org/VideoObject">
     <meta itemprop="name" content="Background Video">
     <meta itemprop="description" content="This is a background video for the homepage">
-    <meta itemprop="uploadDate" content="2024-05-18">
-    <video autoplay muted loop itemprop="contentUrl" title="Congratulations on finding an electrical expert!" alt="A brief description of MINGWAY ELECTRIC">
+    <meta itemprop="thumbnailUrl" content="img/background-video-thumbnail.jpg">
+    <meta itemprop="uploadDate" content="2024-05-18T00:00:00+00:00">
+    <video autoplay muted loop itemprop="contentUrl" title="Congratulations on finding an electrical expert!">
         <source src="img/background-video.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
     <a href="#about" class="scroll-down-btn" aria-label="Read more about Mingway">
         <div class="arrow"></div>
     </a>
-    </div>
+</div>
 
     <!-- About us -->
     <div id="about" class="content active">
@@ -1010,12 +1015,18 @@
             
             if (currentScroll > lastScrollTop) {
                 // Scroll down
-                navbar.classList.add('hide'); // 添加 hide 类以隐藏导航栏
+                navbar.classList.add('hide');
+                navbar.classList.remove('scrolled');
             } else {
                 // Scroll up
-                navbar.classList.remove('hide'); // 移除 hide 类以显示导航栏
+                navbar.classList.remove('hide');
+                navbar.classList.add('scrolled');
             }
-            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+            // Add class to change background color when scrolled
+            if (currentScroll <= 0) {
+                navbar.classList.remove('scrolled');
+            }
+            lastScrollTop = currentScroll;
             });
         });
 

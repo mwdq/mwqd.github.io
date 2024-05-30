@@ -36,8 +36,9 @@
             width: 100%;
             z-index: 1000;
             animation: slideDown 1.5s ease forwards;
-            transition: transform 0.5s ease;
+            transition: transform 0.5s ease, background-color 0.3s ease;
         }
+
         @keyframes slideDown {
             from {
                 top: -100px;
@@ -46,8 +47,13 @@
                 top: 0;
             }
         }
+
         .navbar.hide {
             transform: translateY(-100%);
+        }
+
+        .navbar.scrolled {
+            background-color: #fff;
         }
 
         .navbar:hover {
@@ -62,7 +68,7 @@
         .navbar-brand img:hover {
             transform: scale(1.1);
         }
-        
+
         .navbar-nav {
             margin-left: auto;
         }
@@ -409,12 +415,18 @@
             
             if (currentScroll > lastScrollTop) {
                 // Scroll down
-                navbar.classList.add('hide'); // 添加 hide 类以隐藏导航栏
+                navbar.classList.add('hide');
+                navbar.classList.remove('scrolled');
             } else {
                 // Scroll up
-                navbar.classList.remove('hide'); // 移除 hide 类以显示导航栏
+                navbar.classList.remove('hide');
+                navbar.classList.add('scrolled');
             }
-            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+            // Add class to change background color when scrolled
+            if (currentScroll <= 0) {
+                navbar.classList.remove('scrolled');
+            }
+            lastScrollTop = currentScroll;
             });
         });
     </script>
