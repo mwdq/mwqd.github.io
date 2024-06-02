@@ -147,6 +147,7 @@
         }
         .carousel-inner img {
             width: 100%;
+            height: auto;
         }
         .carousel-indicators {
             position: absolute;
@@ -599,9 +600,14 @@
             }
         }
 
-       @media (max-width: 767px) {
+        @media (max-width: 767px) {
             .navbar-nav .nav-link {
                 margin: 0;
+            }
+    
+            .carousel-inner img {
+                height: 180px;
+                object-fit: cover;
             }
             
             .sidebar {
@@ -619,6 +625,12 @@
 
             .sidebar.show-links ul, .sidebar.show-links h3 {
                 display: block;
+                position: absolute;
+                background: rgba(255, 255, 255, 0.9);
+                z-index: 10;
+                width: 100%;
+                left: 0;
+                top: 75px;
             }
 
             .product-item {
@@ -652,7 +664,7 @@
                 bottom: 20px;
                 right: 20px;
             }
-       }
+        }
     </style>
 </head>
 <body>
