@@ -423,6 +423,8 @@
         }
 
         .catalog-item {
+            display: flex;
+            flex-direction: column;
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -432,8 +434,7 @@
             transition: transform 0.3s, box-shadow 0.3s;
         }
         .catalog-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.1);
         }
         .catalog-item h3 {
             margin-top: 0;
@@ -442,14 +443,54 @@
             margin-bottom: 20px;
             color: #666;
             text-align: justify;
+            line-height: 1.6;
         }
 
-        .btn-primary {
-            transition: background-color 0.3s;
+        .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        border: 2px solid #007bff;
+        border-radius: 5px;
+        background-color: transparent;
+        color: #007bff;
+        font-size: 16px;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s, border-color 0.3s;
         }
-        .btn-primary:hover {
+        .btn:hover {
             background-color: #0056b3;
-            border-color: #0056b3;
+            color: #fff;
+        }
+        .btn-primary {
+            margin: auto;
+            position: sticky;
+            bottom: 20px;
+        }
+
+        .btn-primary:hover::after {
+            content: "\f019";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            margin-left: 5px;
+        }
+
+        .coming-soon-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border: 2px solid #999;
+            border-radius: 5px;
+            background-color: #999;
+            color: #fff;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            cursor: not-allowed;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
+        .coming-soon-btn:hover::after {
+            content: none;
         }
 
         .floating-button {
@@ -780,7 +821,7 @@
     <!-- Company Strengths -->
     <div class="counter-section">
        <div class="container">
-          <h2 class="section-title">Company Strengths</h2>
+          <h2 class="section-title">Company Strength</h2>
             <div class="row">
               <div class="col-md-3 col-sm-6">
                 <div class="counter-box">
@@ -853,7 +894,7 @@
                   sectors, our products can meet your low voltage electrical
                   distribution needs and provide stable support for your
                   electrical system.</p>
-                    <a href="https://drive.google.com/file/d/1Ed0Ck29EPCZk4mbbtyMovVtepbfXtOuN/view?usp=sharing" download class="btn btn-primary">Download</a>
+                    <a href="https://drive.google.com/file/d/1Ed0Ck29EPCZk4mbbtyMovVtepbfXtOuN/view?usp=sharing" download class="btn btn-primary">View & Download</a>
                 </div>
             </div>
             <div class="col-md-6">
@@ -866,7 +907,7 @@
                   project or maintenance management, our products can meet your
                   power distribution needs and provide reliable
                   support for your system.</p>
-                    <a href="https://drive.google.com/file/d/1GMjxRFST9q7hGFnwT8Ji6T5Nm0AkEgGE/view?usp=sharing" download class="btn btn-primary">Download</a>
+                    <a href="https://drive.google.com/file/d/1GMjxRFST9q7hGFnwT8Ji6T5Nm0AkEgGE/view?usp=sharing" download class="btn btn-primary">View & Download</a>
                 </div>
             </div>
             <div class="col-md-6">
@@ -879,20 +920,7 @@
                   mechanical equipment or construction, our products can meet
                   your motor control and protection needs and provide reliable
                   support for your production and operations.</p>
-                    <a href="https://drive.google.com/file/d/1M7icXn6Og2G-Aih0MrRIyM8FXr6zuTSX/view?usp=sharing" download class="btn btn-primary">Download</a>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="catalog-item">
-                    <h3>Power T&D Products</h3>
-                    <p>Mingway's power transmission and distribution products are
-                  efficient and reliable equipment specially designed for power
-                  transmission and distribution systems, aiming to ensure the
-                  safe, stable and efficient transmission of power energy.<br /><br />
-                  Whether you are at a power plant, grid operator or industrial
-                  user, our products can meet your transmission and distribution
-                  needs and provide reliable support for your power system.</p>
-                    <a href="" download class="btn btn-primary" style="background-color: rgb(0, 0, 0);">Coming Soon</a>
+                    <a href="https://drive.google.com/file/d/1M7icXn6Og2G-Aih0MrRIyM8FXr6zuTSX/view?usp=sharing" download class="btn btn-primary">View & Download</a>
                 </div>
             </div>
             <div class="col-md-6">
@@ -907,7 +935,7 @@
                   products can provide you with reliable measurement and control
                   solutions and help you improve production efficiency and
                   product quality.</p>
-                    <a href="https://drive.google.com/file/d/1ftKzkSMPtGufWyy9NkX9dwcw_BYLQyL6/view?usp=sharing" download class="btn btn-primary">Download</a>
+                    <a href="https://drive.google.com/file/d/1ftKzkSMPtGufWyy9NkX9dwcw_BYLQyL6/view?usp=sharing" download class="btn btn-primary">View & Download</a>
                 </div>
             </div>
             <div class="col-md-6">
@@ -921,7 +949,20 @@
                   Whether you are in manufacturing, energy or other industrial
                   areas, our products can meet your industrial equipment and
                   switch needs and help you achieve your production goals.</p>
-                    <a href="https://drive.google.com/file/d/1LfS3b4moek1YNyUqGyp7ZKAetkcR4naR/view?usp=sharing" download class="btn btn-primary">Download</a>
+                    <a href="https://drive.google.com/file/d/1LfS3b4moek1YNyUqGyp7ZKAetkcR4naR/view?usp=sharing" download class="btn btn-primary">View & Download</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="catalog-item">
+                    <h3>Power T&D Products</h3>
+                    <p>Mingway's power transmission and distribution products are
+                  efficient and reliable equipment specially designed for power
+                  transmission and distribution systems, aiming to ensure the
+                  safe, stable and efficient transmission of power energy.<br /><br />
+                  Whether you are at a power plant, grid operator or industrial
+                  user, our products can meet your transmission and distribution
+                  needs and provide reliable support for your power system.</p>
+                    <a href="" download class="btn btn-primary coming-soon-btn">Coming Soon</a>
                 </div>
             </div>
             <div class="col-md-6">
@@ -933,7 +974,7 @@
                   home, commercial or industrial sector, our products can meet
                   your electrical equipment accessories needs and ensure the
                   safe operation of your electrical system.</p>
-                    <a href="https://drive.google.com/file/d/1rO2BxkkQczh4wN5v8cmYd2MvNfw4wcQP/view?usp=sharing" download class="btn btn-primary">Download</a>
+                    <a href="https://drive.google.com/file/d/1rO2BxkkQczh4wN5v8cmYd2MvNfw4wcQP/view?usp=sharing" download class="btn btn-primary">View & Download</a>
                 </div>
             </div>
             <div class="col-md-6">
@@ -945,7 +986,7 @@
                   applications.<br /><br />Whether you are at home, commercial or
                   industrial, our products can meet your energy needs and help
                   you achieve your energy transition goals.</p>
-                    <a href="" download class="btn btn-primary" style="background-color: rgb(0, 0, 0);">Coming Soon</a>
+                    <a href="" download class="btn btn-primary coming-soon-btn">Coming Soon</a>
                 </div>
             </div>
             <!-- Add more catalog items as needed -->
