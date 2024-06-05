@@ -135,126 +135,6 @@
             opacity: 1;
         }
 
-        .floating-button {
-            position: fixed;
-            font-size: 25px;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, background-color 0.3s ease, opacity 0.5s ease;
-            animation: slideUp 1.5s ease forwards, rotateButton 3s linear infinite;
-        }
-        @keyframes slideUp {
-            from {
-                bottom: -100px;
-            }
-            to {
-                bottom: 20px;
-            }
-        }
-        @keyframes rotateButton {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
-        }
-        .floating-button:hover {
-            background-color: #0056b3;
-            transform: scale(1.05);
-            animation-play-state: paused;
-        }
-
-        .contact-card {        
-            position: fixed;
-            bottom: 50px;
-            right: 50px;
-            z-index: 1000;
-            color: #fff;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-            opacity: 0;
-            transform: translateY(100%);
-            width: 300px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(135deg, blue, grey, red);
-        }
-        .contact-card.active {        
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .close-button {        
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            cursor: pointer;
-            color: #fff;
-            font-size: 24px;
-            transition: transform 0.3s ease;
-            animation: fadeIn 0.5s ease forwards;
-            opacity: 0;
-        }
-        .close-button:hover {        
-            transform: rotate(90deg) scale(1.2);
-        }
-
-        .contact-card.active .close-button {        
-            opacity: 1;
-        }
-        .contact-info p {
-            margin-bottom: 10px;
-            font-size: 16px;
-        }
-        .contact-info p i {
-            margin-right: 10px;
-        }
-        .contact-card h3 {
-            margin-top: 0;
-            font-size: 24px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .contact-card p {        
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .whatsapp-button {
-            margin-top: 20px;
-            background-color: #25D366;
-            color: #fff;
-            padding: 12px 24px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 20px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            display: block;
-            width: 100%;
-            text-align: center;
-        }
-        .whatsapp-button:hover {
-            background-color: #128C7E;
-            transform: translateY(-2px);
-        }
-        .whatsapp-button:active {
-            transform: translateY(1px);
-        }
-
         .header {
            background-image: url("img/background/bg1.jpg");
            background-size: cover;
@@ -282,7 +162,7 @@
        }
 
        .product-details {
-           padding: 50px 0;
+           padding: 20px 0;
        }
        .product-details .product-thumbnails {
            display: flex;
@@ -397,15 +277,18 @@
                 flex-wrap: nowrap !important;
                 overflow-x: auto !important;
                 -webkit-overflow-scrolling: touch !important;
-                justify-content: center !important;
-                align-items: flex-start !important;
+                justify-content: flex-start !important;
+                align-items: center !important;
                 margin-top: 10px;
             }
             .product-thumbnails .img-thumbnail {
+                flex: 0 0 auto;
+                width: 60px;
+                height: auto;
                 margin-right: 10px !important;
             }
-           .product-thumbnails .img-thumbnail:last-child {
-               margin-right: 0 !important;
+            .product-thumbnails .img-thumbnail:last-child {
+                margin-right: 0 !important;
             }
 
             .product-info h2,
@@ -427,25 +310,6 @@
             }
             .header-title {
                 font-size: 36px;
-            }
-            
-            .contact-card {
-                left: 50%;
-                transform: translate(-50%, 100%);
-                width: 90%;
-                max-width: 300px;
-                background: linear-gradient(135deg, blue, grey, red);
-                transition: opacity 0.5s ease, transform 0.5s ease;
-            }
-
-            .contact-card.active {
-                transform: translate(-50%, 0);
-                opacity: 1;
-            }
-
-            .floating-button {
-                bottom: 20px;
-                right: 20px;
             }
         }
     </style>
@@ -544,21 +408,6 @@
        </div>
     </section>
 
-    <!-- Floating button for contact card -->
-    <button class="floating-button" id="contactButton" onclick="toggleContactCard()"><i class="fas fa-address-card"></i></button>
-
-    <!-- Contact card -->
-    <div class="contact-card" id="contactCard">
-        <h3>Get In Touch</h3>
-        <div class="contact-info">
-            <p><i class="fas fa-map-marker-alt"></i> 7 Hung Hing Road, Ningbo, China</p>
-            <p><i class="fas fa-envelope"></i> info@nbmwele.com<br>sales@nbmwele.com<br>support@nbmwele.com</p>
-            <p><i class="fas fa-phone"></i> 86-574-3560921</p>
-        </div>
-        <a href="https://wa.me/8617357442663" target="_blank" class="whatsapp-button">Start <i class="fab fa-whatsapp"></i> WhatsApp</a>
-        <div class="close-button" onclick="toggleContactCard()"><i class="fas fa-times"></i></div>
-    </div>
-
     <!-- Footer -->
     <footer class="footer">
     <div class="container">
@@ -649,25 +498,6 @@
             lastScrollTop = currentScroll;
             });
         });
-
-        // Function to toggle contact card visibility
-        function toggleContactCard() {
-            var contactCard = document.getElementById('contactCard');
-            var contactButton = document.getElementById('contactButton');
-            if (contactCard.classList.contains('active')) {
-                contactCard.classList.remove('active');
-                setTimeout(function() {
-                    contactCard.style.display = 'none';
-                }, 500); // Delay hiding to match transition duration
-                contactButton.style.opacity = 1;
-            } else {
-                contactCard.style.display = 'block';
-                setTimeout(function() {
-                    contactCard.classList.add('active');
-                }, 10); // Delay showing to allow display block to take effect
-                contactButton.style.opacity = 0;
-            }
-        }
 
         // 在文档加载完毕后执行
         $(document).ready(function() {
