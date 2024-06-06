@@ -763,7 +763,7 @@
         <div class="row">
             <div class="col-md-6">
                 <p>If you have any questions or would like to discuss potential collaborations, please feel free to contact us using the form below.</p>
-                <form id="contactForm" onsubmit="sendEmail()">
+                <form id="contactForm" onsubmit="sendEmail(event)">
                     <div class="form-group">
                         <input type="text" class="form-control" id="name" placeholder="Your Name" required>
                     </div>
@@ -899,22 +899,31 @@
           },
         });
     </script>
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
-    <script>
-        function sendEmail() {
-            Email.send({
-                SecureToken: "dfb5d99f-caf6-4cfe-b72f-c5ebd54616fa",
-                To: "info@nbmwele.com",
-                From: "procdns@proton.me",
-                Subject: document.getElementById("subject").value,
-                Body:
-                    "Name: " +
-                    document.getElementById("name").value +
-                    "<br>Email: " +
-                    document.getElementById("email").value +
-                    "<br>Message: " +
-                    document.getElementById("message").value,
-            }).then((message) => alert("Submit successfully"));
+
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("hBK__tKlC5mftY_An");
+        })();
+
+        function sendEmail(event) {
+            event.preventDefault();
+
+            var templateParams = {
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                subject: document.getElementById("subject").value,
+                message: document.getElementById("message").value
+            };
+
+            emailjs.send('service_i851fp8', 'template_qdjp48r', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    alert("Submit successfully");
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    alert("Failed to send email. Please try again later.");
+                });
         }
     </script>
 </body>
