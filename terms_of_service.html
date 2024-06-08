@@ -179,25 +179,86 @@
        }
 
        .footer {
-           background-color: #333;
-           color: #fff;
-           text-align: center;
-           padding: 20px 0;
-           z-index: 1000;
-       }
-
-       .footer p {
-           margin-bottom: 0;
-       }
-
-       .footer a {
-           color: #ffc107;
-           text-decoration: none;
-       }
-
-       .footer a:hover {
-           text-decoration: underline;
-       }
+            background: linear-gradient(135deg, #141E30, #243B55);
+            color: #ddd;
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+            z-index: 1000;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        .footer h4 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #fff;
+            text-transform: uppercase;
+        }
+        .footer p, .footer a {
+            color: #ddd;
+            text-decoration: none;
+            font-size: 16px;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        .footer a:hover {
+            color: #ffc107;
+        }
+        .footer .contact-info, .footer .business-hours, .footer .quick-links, .footer .social-media {
+            margin-bottom: 30px;
+        }
+        .footer .quick-links ul {
+            padding: 0;
+            list-style: none;
+        }
+        .footer .quick-links li {
+            margin-bottom: 10px;
+        }
+        .footer .social-media .list-inline-item {
+            margin-right: 15px;
+        }
+        .footer .social-media .list-inline-item a {
+            color: #fff;
+            font-size: 26px;
+            padding: 10px;
+            border-radius: 50%;
+            background-color: #444;
+            display: inline-block;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .footer .social-media .list-inline-item a:hover {
+            background-color: #ffc107;
+            transform: scale(1.2);
+        }
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+        .footer-logo img {
+            max-width: 200px;
+        }
+        .footer-slogan {
+            margin-bottom: 30px;
+            font-size: 18px;
+            font-style: italic;
+            color: #aaa;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ffc107;
+            color: #333;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            z-index: 1000;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .back-to-top:hover {
+            background-color: #ff9800;
+            transform: scale(1.2);
+        }
 
        @media (max-width: 991px) {
             .navbar-nav {
@@ -223,6 +284,13 @@
            .header-title {
                font-size: 36px;
            }
+
+            .footer h4 {
+                font-size: 20px;
+            }
+            .footer p, .footer a {
+                font-size: 14px;
+            }
        }
     </style>
   </head>
@@ -351,51 +419,62 @@
 
     <!-- Footer -->
     <footer class="footer">
-    <div class="container">
-        <div class="row">
-            <!-- Contact Information -->
-            <div class="col-md-4 mb-4 mb-md-0">
-                <h4>Contact Us</h4>
-                <p><i class="fas fa-map-marker-alt"></i> 7 Hung Hing Road, Ningbo, China</p>
-                <p><i class="fas fa-envelope"></i> <a href="mailto:info@nbmwele.com">info@nbmwele.com</a></p>
-                <p><i class="fas fa-phone"></i> 86-574-3560921</p>
-            </div>
-            <!-- Schedule -->
-            <div class="col-md-4 mb-4 mb-md-0">
-                <h4>Business Hours</h4>
-                <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
-                <p>Saturday: 10:00 AM - 3:00 PM</p>
-                <p>Sunday: Closed</p>
-            </div>
-            <!-- Quick Links -->
-            <div class="col-md-2 mb-4 mb-md-0">
-                <h4>Quick Links</h4>
-                <ul class="list-unstyled">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html#about">About Us</a></li>
-                    <li><a href="product.html#gallery">Gallery</a></li>
-                    <li><a href="product.html#catalog">Catalog</a></li>
-                    <li><a href="index.html#contact">Contact Us</a></li>
-                </ul>
+        <div class="container">
+            <div class="row">
+                <!-- Company Logo and Slogan -->
+                <div class="col-12 footer-logo">
+                    <img src="img/logo.png" alt="Mingway Logo">
+                </div>
+                <div class="col-12 footer-slogan">
+                    <p>"Empowering the Future with Advanced Electrical Solutions"</p>
+                </div>
+                <!-- Contact Information -->
+                <div class="col-md-4 contact-info">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 7 Hung Hing Road, Ningbo, China</p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:info@nbmwele.com">info@nbmwele.com</a></p>
+                    <p><i class="fas fa-phone"></i> 86-574-3560921</p>
+                </div>
+                <!-- Schedule -->
+                <div class="col-md-4 business-hours">
+                    <h4>Business Hours</h4>
+                    <p><i class="fas fa-clock"></i> Monday - Friday: 9:00 AM - 5:00 PM</p>
+                    <p><i class="fas fa-clock"></i> Saturday: 10:00 AM - 3:00 PM</p>
+                    <p><i class="fas fa-clock"></i> Sunday: Closed</p>
+                </div>
+                <!-- Quick Links -->
+                <div class="col-md-4 quick-links">
+                    <h4>Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="product.html#gallery">Gallery</a></li>
+                        <li><a href="product.html#catalog">Catalog</a></li>
+                        <li><a href="index.html#contact">Contact Us</a></li>
+                    </ul>
+                </div>
             </div>
             <!-- Social Media Links -->
-            <div class="col-md-2">
-                <h4>Follow Us</h4>
-                <ul class="list-inline social-media">
-                    <li class="list-inline-item"><a href="https://www.facebook.com/profile.php?id=100085752237804" aria-label="Follow Mingway by Facebook"><i class="fab fa-facebook"></i></a></li>
-                    <li class="list-inline-item"><a href="https://www.x.com/nbmwele" aria-label="Follow Mingway by Twitter"><i class="fab fa-twitter"></i></a></li>
-                    <li class="list-inline-item"><a href="https://www.linkedin.com/in/nbmwele" aria-label="Follow Mingway by LinkedIn"><i class="fab fa-linkedin"></i></a></li>
-                    <li class="list-inline-item"><a href="https://www.instagram.com/nbmwele" aria-label="Follow Mingway by Instagram"><i class="fab fa-instagram"></i></a></li>
-                </ul>
+            <div class="row">
+                <div class="col-12 social-media">
+                    <h4>Follow Us</h4>
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><a href="https://www.facebook.com/profile.php?id=100085752237804" aria-label="Follow Mingway by Facebook"><i class="fab fa-facebook"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.x.com/nbmwele" aria-label="Follow Mingway by Twitter"><i class="fab fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.linkedin.com/in/nbmwele" aria-label="Follow Mingway by LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.instagram.com/nbmwele" aria-label="Follow Mingway by Instagram"><i class="fab fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Copyright -->
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p>&copy; 2024 Ningbo Mingway Electric Co., Ltd. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms_of_service.html">Terms of Service</a></p>
+                </div>
             </div>
         </div>
-        <!-- Copyright -->
-        <div class="row">
-            <div class="col-12 text-center">
-                <p>&copy; 2024 Ningbo Mingway Electric Co., Ltd. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms_of_service.html">Terms of Service</a></p>
-            </div>
-        </div>
-    </div>
+        <!-- Back to Top Button -->
+        <button class="back-to-top" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i></button>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -436,6 +515,20 @@
             lastScrollTop = currentScroll;
             });
         });
+        
+        // Show/hide back-to-top button
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 1000) {
+                $('.back-to-top').fadeIn();
+            } else {
+                $('.back-to-top').fadeOut();
+            }
+        });
+
+        // Smooth scroll to top
+        function scrollToTop() {
+            $('html, body').animate({ scrollTop: 0 }, 600);
+        }
     </script>
   </body>
 </html>
