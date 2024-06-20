@@ -8,7 +8,7 @@
     <title>Reliable Energy Solutions Provider | MINGWAY</title>
     <link rel="icon" href="img/favicon.ico" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <style>
@@ -414,9 +414,9 @@
         }
         .back-to-top {
             position: fixed;
-            bottom: 20px;
+            bottom: 10px;
             right: 20px;
-            background-color: #ffc107;
+            background-color: #007bff;
             color: #333;
             border: none;
             padding: 15px 20px;
@@ -427,7 +427,7 @@
             transition: background-color 0.3s, transform 0.3s;
         }
         .back-to-top:hover {
-            background-color: #ff9800;
+            background-color: #0056b3;
             transform: scale(1.2);
         }
 
@@ -510,7 +510,7 @@
     <a href="#about" class="scroll-down-btn" aria-label="Read more about Mingway">
         <div class="arrow"></div>
     </a>
-</div>
+    </div>
 
     <!-- About us -->
     <div id="about" class="content active">
@@ -914,16 +914,14 @@
             </div>
         </div>
         <!-- Back to Top Button -->
-        <button class="back-to-top" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i></button>
+        <a href="#" class="back-to-top" id="back-to-top"><i class="fas fa-arrow-up"></i></a>
     </footer>
 
-    <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Font Awesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
-    <!-- Owl Carousel JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
 
     <script>
         // Automatically close navbar collapse when scrolling down on mobile
@@ -980,9 +978,29 @@
             1000: { items: 5 },
           },
         });
+
+        // Scroll to top
+        document.addEventListener("DOMContentLoaded", function() {
+            var backToTopButton = document.getElementById('back-to-top');
+
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 2000) {
+                    backToTopButton.style.display = 'block';
+                } else {
+                    backToTopButton.style.display = 'none';
+                }
+            });
+
+            backToTopButton.addEventListener('click', function(event) {
+                event.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
     </script>
 
-    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script type="text/javascript">
         (function() {
             emailjs.init("hBK__tKlC5mftY_An");
