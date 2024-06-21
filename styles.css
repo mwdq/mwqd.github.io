@@ -123,6 +123,512 @@ html {
     opacity: 1;
  }
 
+        .content {
+            padding: 50px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: #333;
+            text-transform: uppercase;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .carousel {
+            width: 100%;
+        }
+        .carousel-inner img {
+            width: 100%;
+            height: auto;
+        }
+        .carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            margin: auto;
+            z-index: 15;
+        }
+        .carousel-indicators li {
+            background-color: rgba(255, 255, 255, 0.5);
+            border: 1px solid #fff;
+            border-radius: 50%;
+            width: 12px;
+            height: 12px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+        .carousel-indicators .active {
+            background-color: #fff;
+        }
+
+        .features-container {
+            background-color: #f9f9f9;
+            text-align: center;
+            padding: 40px 0;
+        }
+        .feature-icon {
+            font-size: 36px;
+            color: #ff0000;
+            margin-bottom: 20px;
+        }
+        .feature-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .feature-description {
+            font-size: 18px;
+            color: #666;
+        }
+
+        .sidebar {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 18px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar:hover {
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.2);
+        }
+
+        .sidebar .search-container {
+            position: relative;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .sidebar .search-container .toggle-button {
+            display: none;
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            color: #999;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .sidebar .search-container .search-icon {
+            position: absolute;
+            top: 50%;
+            left: 15px;
+            transform: translateY(-50%);
+            color: #999;
+            transition: color 0.3s ease;
+        }
+
+        .sidebar h3 {
+            margin-top: 0;
+            color: #333;
+            font-size: 20px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 10px;
+        }
+
+        .sidebar input[type="text"] {
+            background-color: #f2f2f2;
+            width: 100%;
+            padding: 10px 10px 10px 40px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            transition: border-color 0.3s ease;
+        }
+
+        .sidebar input[type="text"]:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar ul li a {
+            color: #333;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar ul li a:hover {
+            color: #fff;
+            background-color: #007bff;
+        }
+
+        .sidebar ul li.active a {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .product-item {
+            position: relative;
+            overflow: hidden;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .product-item:hover {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-img {
+            position: relative;
+            overflow: hidden;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .product-img img {
+            width: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .product-img .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.3s ease;
+        }
+
+        .product-item:hover .overlay {
+            opacity: 1;
+        }
+
+        .product-img .overlay a {
+            color: #fff;
+            font-size: 24px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .product-img .overlay a:hover {
+            text-decoration: underline;
+        }
+
+        .product-img .overlay a:hover .fas {
+            color: blue;
+            transition: color 0.3s ease;
+        }
+
+        .product-name {
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            padding: 5px 0;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+        }
+
+        .pagination-link {
+            color: #007bff;
+            background-color: #fff;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            padding: 8px 16px;
+            margin: 0 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .pagination-link:hover {
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .pagination-item.active .pagination-link {
+            background-color: #007bff;
+            color: #fff;
+            border-color: #007bff;
+        }
+
+        .d-flex {
+            display: flex;
+        }
+
+        .flex-column {
+            flex-direction: column;
+        }
+
+        .flex-grow-1 {
+            flex-grow: 1;
+        }
+
+        .counter-section {
+            background-color: #f9f9f9;
+            padding: 50px 0;
+        }
+        .counter-box {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .counter-box h3 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .counter-box p {
+            color: #777;
+            font-size: 18px;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .catalog-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 30px;
+            padding: 0 20px;
+        }
+
+        .catalog-item {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            background: linear-gradient(135deg, #56ccf2, #2f80ed);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            flex: none;
+        }
+
+        .catalog-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .catalog-item h3 {
+            margin-top: 20px;
+            color: #fff;
+            text-align: center;
+            font-size: 1.8em;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+            animation: gradientShift 8s ease infinite;
+        }
+
+        .catalog-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            text-align: center;
+            border-radius: 0 0 15px 15px;
+            transition: transform 0.3s;
+        }
+
+        .catalog-item:hover .catalog-content {
+            transform: translateY(-50px);
+        }
+
+        .catalog-item p {
+            margin-bottom: 20px;
+            color: #333;
+            text-align: justify;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            background-color: transparent;
+            color: #007bff;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+            color: #fff;
+        }
+
+        .coming-soon-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border: 2px solid #999;
+            border-radius: 5px;
+            background-color: #999;
+            color: #fff;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            cursor: not-allowed;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
+
+        .coming-soon-btn:hover {
+            background-color: #999;
+            color: #fff;
+            pointer-events: none;
+        }
+
+        .floating-button {
+            position: fixed;
+            font-size: 28px;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1001;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 54px;
+            height: 54px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, background-color 0.3s ease, opacity 0.5s ease;
+            animation: slideUp 1.5s ease forwards, rotateButton 3s linear infinite;
+        }
+        @keyframes slideUp {
+            from {
+                bottom: -100px;
+            }
+            to {
+                bottom: 20px;
+            }
+        }
+        @keyframes rotateButton {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        .floating-button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+            animation-play-state: paused;
+        }
+
+        .contact-card {        
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+            z-index: 1001;
+            color: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            opacity: 0;
+            transform: translateY(100%);
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, blue, grey, red);
+        }
+        .contact-card.active {        
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .close-button {        
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            cursor: pointer;
+            color: #fff;
+            font-size: 24px;
+            transition: transform 0.3s ease;
+            animation: fadeIn 0.5s ease forwards;
+            opacity: 0;
+        }
+        .close-button:hover {        
+            transform: rotate(90deg) scale(1.2);
+        }
+
+        .contact-card.active .close-button {        
+            opacity: 1;
+        }
+        .contact-info p {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        .contact-info p i {
+            margin-right: 10px;
+        }
+        .contact-card h3 {
+            margin-top: 0;
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .contact-card p {        
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .whatsapp-button {
+            margin-top: 20px;
+            background-color: transparent;
+            color: #25D366;
+            padding: 12px 24px;
+            border: 1px solid #25D366;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 23px;
+            transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+        .whatsapp-button:hover {
+            color: #fff;
+            background-color: #25D366;
+            text-decoration: none;
+        }
+
 .header {
     background-image: url("img/background/bg1.jpg");
     background-size: cover;
@@ -357,11 +863,65 @@ html {
 }
 
 @media (max-width: 767px) {
+
     .header {
         padding: 68px 0;
     }
     .header-title {
         font-size: 36px;
+    }
+    
+    .carousel-inner img {
+        height: 180px;
+        object-fit: cover;
+    }
+            
+    .sidebar {
+        text-align: center;
+        padding-bottom: 1px;
+    }
+    .sidebar .search-container .toggle-button {
+        display:block
+    }
+    .sidebar ul, .sidebar h3 {
+        display: none;
+    }
+    .sidebar.show-links ul, .sidebar.show-links h3 {
+        display: block;
+        position: absolute;
+        background: rgba(255, 255, 255, 0.9);
+        z-index: 10;
+        width: 100%;
+        left: 0;
+        top: 75px;
+    }
+
+    .product-item {
+        margin-bottom: 15px;
+    }
+    .product-img .overlay a {
+        font-size: 20px;
+    }
+    .pagination-link {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+            
+    .contact-card {
+        left: 50%;
+        transform: translate(-50%, 100%);
+        width: 90%;
+        max-width: 300px;
+        background: linear-gradient(135deg, blue, grey, red);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .contact-card.active {
+        transform: translate(-50%, 0);
+        opacity: 1;
+    }
+    .floating-button {
+        bottom: 20px;
+        right: 20px;
     }
 
     .footer h4 {
