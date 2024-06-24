@@ -1,5 +1,3 @@
-// General JavaScript
-
 // Automatically close navbar collapse when scrolling down on mobile
 window.addEventListener("scroll", function () {
   if (window.innerWidth < 992) {
@@ -50,79 +48,6 @@ $(window).scroll(function () {
 function scrollToTop() {
   $("html, body").animate({ scrollTop: 0 }, 600);
 }
-
-
-// Product JavaScript
-
-// Initialize Bootstrap carousel
-$('.carousel').carousel({
-   interval: 2500
-});
-
-// Update counters when scrolled into view
-$('.counter-section').waypoint(function() {
-  startCounting();
-  this.destroy(); // Destroy the waypoint to ensure it only triggers once
-}, { offset: '80%' }); // Adjust the offset as per your layout
-
-// Initialize counters
-function startCounting() {
-  $('.counter').each(function() {
-    var $this = $(this);
-    var countTo = $this.attr('data-count');
-
-    $({ countNum: $this.text() }).animate({
-      countNum: countTo
-    }, {
-      duration: 2000, // Change the duration as per your requirement
-      easing: 'swing',
-      step: function() {
-        $this.text(Math.floor(this.countNum));
-      },
-      complete: function() {
-        $this.text(this.countNum);
-      }
-    });
-  });
-}
-
-// Function to toggle contact card visibility
-function toggleContactCard() {
-    var contactCard = document.getElementById('contactCard');
-    var contactButton = document.getElementById('contactButton');
-    if (contactCard.classList.contains('active')) {
-        contactCard.classList.remove('active');
-        setTimeout(function() {
-            contactCard.style.display = 'none';
-        }, 500); // Delay hiding to match transition duration
-        contactButton.style.opacity = 1;
-    } else {
-        contactCard.style.display = 'block';
-        setTimeout(function() {
-            contactCard.classList.add('active');
-        }, 10); // Delay showing to allow display block to take effect
-        contactButton.style.opacity = 0;
-    }
-}
-
-// Sidebar toggle show-links
-const toggleButton = document.querySelector(".toggle-button");
-const sidebar = document.querySelector(".sidebar");
-
-toggleButton.addEventListener("click", () => {
-  sidebar.classList.toggle("show-links");
-});
-
-document.querySelectorAll(".sidebar ul li a").forEach((link) => {
-  link.addEventListener("click", () => {
-    if (sidebar.classList.contains("show-links")) {
-      sidebar.classList.remove("show-links");
-    }
-  });
-});
-
-
-// Product Details JavaScript
 
 // 在文档加载完毕后执行
 $(document).ready(function () {
