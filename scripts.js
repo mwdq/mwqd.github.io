@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Show/hide back-to-top button
 $(window).scroll(function () {
-  if ($(this).scrollTop() > 3000) {
+  if ($(this).scrollTop() > 1500) {
     $(".back-to-top").fadeIn();
   } else {
     $(".back-to-top").fadeOut();
